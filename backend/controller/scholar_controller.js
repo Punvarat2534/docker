@@ -166,15 +166,9 @@ class scholar_controller{
         const student = (req.params.text || '').trim();
         const scholar_typ = (req.params.typ || '').trim();  
         const status = (req.params.sts || '').trim();             
-        //console.log('student =', student);
-        //console.log('student length =', student.length);
-
-        /*const sql = `
-            SELECT * FROM public."scholars" WHERE (student_id LIKE $1 or student_name LIKE $1) 
-        `;*/
 
         const sql = `
-            SELECT * FROM public."scholars" WHERE (student_id LIKE $1 or student_name LIKE $1) OR ($2 = '' OR scholar_typ = $2) OR ($3 = '' OR status = $3)
+            SELECT * FROM public."scholars" WHERE (student_id LIKE $1 or student_name LIKE $1) OR ($2 = '' OR scholar_typ = $2) OR ($3 = '' OR status = $3) and deleted_at is null
         `;
 
         const searchText = `%${student}%`;
