@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      
+    restart: unless-stopped
+    # Optional runtime CPU & RAM limits for production safety
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M

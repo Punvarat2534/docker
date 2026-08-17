@@ -1,0 +1,22 @@
+
+
+node -e "const bcrypt=require('bcrypt'); bcrypt.hash('123456',12).then(console.log)"
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL,
+    name VARCHAR(200),
+    role VARCHAR(50) DEFAULT 'staff',
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+INSERT INTO users
+(username, password_hash, name, role)
+VALUES
+(
+    'admin',
+    '$2b$12$6PlVC.5xd0cVNiwTQFPjSeA6rT23tFXLDcLtnLSY60bekWGPD5VAu',
+    'ผู้ดูแลระบบ',
+    'admin'
+);

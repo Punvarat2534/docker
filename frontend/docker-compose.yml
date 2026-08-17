@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  nuxt-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nuxt_app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NUXT_PUBLIC_API_BASE=https://localhost:5000
+    restart: always
