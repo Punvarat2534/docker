@@ -53,11 +53,11 @@
 
   <UButton
     size="xl"
-    class="btn"
+    class="btn w-full justify-center" 
     type="submit"
     style="width: 100%; margin-top: 0.5rem; padding: 0.8rem; text-align: center;"
+    label="เข้าสู่ระบบ"
   >
-    เข้าสู่ระบบ
   </UButton>
 </UForm>
         </div>
